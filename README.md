@@ -71,7 +71,7 @@ Neste curso você irá aprender a criar uma máquina virtual pré configurada pa
 
 ## <a name="parte2">2 - O que é MVC?</a>
 
-
+![](img_readme\mvc.PNG)
 
 [Voltar ao Índice](#indice)
 
@@ -80,6 +80,8 @@ Neste curso você irá aprender a criar uma máquina virtual pré configurada pa
 
 ## <a name="parte3">3 - Grupo no Facebook e Youtube</a>
 
+- https://www.facebook.com/groups/pontocursos
+- https://www.youtube.com/user/PontoCanalOficial
 
 
 [Voltar ao Índice](#indice)
@@ -134,7 +136,40 @@ Neste curso você irá aprender a criar uma máquina virtual pré configurada pa
 
 ## <a name="parte9">9 - Conhecendo os comandos Artisan</a>
 
+O Framework Laravel possui uma ferramenta de linha de comando que é instalado assim que o desenvolvedor cria um novo projeto e essa ferramenta chama-se Artisan. 
 
+O Artisan provê uma série de comandos altamente intuitivos que nos proporcionam a possibilidade de gerar classes, Models, FormRequest e tudo mais que o Framework possui pode ser acessado via Artisan.
+
+Fazendo o uso do Artisan suas classes já são inteiramente criadas estendendo as classes corretas, salvas no diretório apropriado e também é gerado o arquivo para fazer os includes automáticos que forem necessários. Ao digitar o comando: php artisan, no prompt de comando você terá acesso a todos comandos para geração de código automático que ficam disponibilizados para o desenvolvedor.
+
+Agora vamos exemplificar alguns comandos disponíveis:
+
+- clear-compiled: Sempre que o Framework é colocado em produção as classes principais são compiladas para o carregamento seja mais rápido. Esse processo é feito em cache e caso você queira remover esse cache basta usar o comando clear-compiled.
+- down: Caso sua aplicação esteja em produção e você precise realizar alguma manutenção que a aplicação necessite ficar alguns minutos fora de operação o comando: php artisan down, fará com que sua aplicação apresenta a tela manutenção padrão do Laravel e não fique off-line.
+- up: Assim que a equipe de desenvolvimento concluir a manutenção basta apenas digitar o seguinte comando no prompt de comando: php artisan up.
+- env: O comando: php artisan env, apresenta o ambiente de desenvolvimento que está sendo utilizado.
+- optimize: O comando: php artisan optimize, realiza o cast no Framework para que o Laravel tenha sua melhor performance.
+- help: O comando: php artisan help, lista todas as ajudas para o Framework.
+- tinker: O comando: php artisan tinker, permite a interação com a aplicação.Como por exemplo a inserção de dados nas tabelas do banco de dados.
+- migrate: O comando: php artisan migrate, executa as operações no banco de dados, criando tabelas, rodando script sql entre outros.
+- list: O comando: php artisan list, executa a listagem de todos os comandos;
+- make: O make possibilita a criação de código fonte, tornando assim o desenvolvimento altamente produtivo.
+
+Alguns exemplos:
+
+- php artisan make:controller : cria uma nova classe controller;
+- php artisan make:model : cria uma nova classe model;
+- php artisan make:migration : cria um novo arquivo de migração;
+
+- route: O route possibilita a criação de rotas, tornando a aplicação mais segura.
+
+Alguns exemplos:
+
+- php artisan route:cache : cria um arquivo de rota cache de registro rápido;
+- php artisan route:clear : remove o arquivo de rota do cache;
+- php artisan route:list : apresenta todas as rotas registradas na aplicação;
+
+Existem diversos outros comando que podem ser usados e ao longo do cursos iremos apresentar e utilizar alguns para otimizar nosso tempo programando.
 
 [Voltar ao Índice](#indice)
 
