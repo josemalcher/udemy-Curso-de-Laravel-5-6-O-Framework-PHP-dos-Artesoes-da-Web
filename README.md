@@ -187,7 +187,25 @@ Existem diversos outros comando que podem ser usados e ao longo do cursos iremos
 
 ## <a name="parte11">11 - Conhecendo as Rotas no Laravel</a>
 
+- projeto1/app/Http/Controllers/ContatoController.php
 
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ContatoController extends Controller
+{
+    public function index(){
+        $data['titulo'] = "Minha página de contato";
+        return view('contato', $data);
+    }
+
+}
+
+```
 
 [Voltar ao Índice](#indice)
 
