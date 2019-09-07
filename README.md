@@ -214,7 +214,15 @@ class ContatoController extends Controller
 
 ## <a name="parte12">12 - Boas práticas na nomenclatura de arquivos</a>
 
+Ao trabalhar com um Framework é importante seguir o padrão de nomenclatura de arquivos adotado pelo mesmo e também as boas práticas de programação. A seguir listaremos o padrão de nomenclatura adotado pelo Laravel:
 
+- Controller: devem iniciar com a primeira letra em maiúscula e não devem conter caracteres especiais. Controllers são classe e sendo assim o nome da classe deve coincidir com o nome do arquivo, por exemplo, a classe Contato deve ser salva em um arquivo chamado Contato.php e um nome composto teríamos a classe ContatoSite com o arquivo ContatoSite.php.
+- Models: da mesma forma dos controllers eles são classes e devem adotar o mesmo padrão acima.
+- Views: o nome do arquivo deve ser escrito em letras minúsculas e podem conter ou não a extensão .blade, exemplo, contato.blade.php.
+
+Como uma boa prática de programação PHP, devemos iniciar nossos scripts PHP com <?php sem nenhum espaço, nenhuma linha ou qualquer outro caractere antes da tag de abertura, e não devemos incluir ao final do script a tag ?> .
+
+Nos arquivos Laravel este é o padrão adotado, porém em arquivos mistos como as views que misturam HTML e PHP, neste caso devemos abrir e fechar as tags <?php  e ?>  sempre que necessário.
 
 [Voltar ao Índice](#indice)
 
