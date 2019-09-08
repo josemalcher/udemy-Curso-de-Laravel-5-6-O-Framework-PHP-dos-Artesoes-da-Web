@@ -18,3 +18,4 @@ Route::get('/', function () {
 //    return view('contato');
 //});
 Route::resource('/contato','ContatoController');
+Route::resource('/produtos','ProdutosController');

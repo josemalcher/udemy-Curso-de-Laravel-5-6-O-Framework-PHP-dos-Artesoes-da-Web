@@ -267,7 +267,36 @@ Nos arquivos Laravel este é o padrão adotado, porém em arquivos mistos como a
 
 ## <a name="parte17">17 - Criando a rota e o Controller dos nossos Produtos</a>
 
+```php
+<?php
 
+namespace App\Http\Controllers;
+
+use App\Produtos;
+use Illuminate\Http\Request;
+
+class ProdutosController extends Controller
+{
+    public function index(){
+        $produtos = Produtos::all(); // recebe todos os dados do produto
+
+        echo '<pre>';
+        print_r($produtos);
+        echo '</pre>';
+
+    }
+
+    public function show($id)
+    {
+        $produtos = Produtos::find($id);
+
+        echo '<pre>';
+        print_r($produtos);
+        echo '</pre>';
+    }
+}
+
+```
 
 [Voltar ao Índice](#indice)
 
