@@ -10,18 +10,20 @@ class ProdutosController extends Controller
     public function index(){
         $produtos = Produtos::all(); // recebe todos os dados do produto
 
-        echo '<pre>';
+/*        echo '<pre>';
         print_r($produtos);
-        echo '</pre>';
+        echo '</pre>';*/
 
+    return view('produtos.index', array('produtos' => $produtos));
     }
 
     public function show($id)
     {
-        $produtos = Produtos::find($id);
+        $produto = Produtos::find($id);
 
-        echo '<pre>';
-        print_r($produtos);
-        echo '</pre>';
+//        echo '<pre>';
+//        print_r($produtos);
+//        echo '</pre>';
+        return view('produtos.show', array('produto' => $produto));
     }
 }
