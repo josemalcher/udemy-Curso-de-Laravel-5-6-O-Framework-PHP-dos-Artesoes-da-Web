@@ -361,6 +361,44 @@ class ProdutosController extends Controller
 
 ## <a name="parte19">19 - Criando um Template Base com ajuda do Blade</a>
 
+- projeto1/resources/views/layout/app.blade.php
+
+```blade
+<!doctype html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projeto Laravel - @yield('title')</title>
+</head>
+<body>
+    <div class="container">
+        @yield('content')
+    </div>
+</body>
+</html>
+
+```
+
+- projeto1/resources/views/produtos/index.blade.php
+- projeto1/resources/views/produtos/show.blade.php
+
+```blade
+@extends('layout.app')
+@section('title', 'Lista de Produtos')
+@section('content')
+<h1>Produtos</h1>
+<ul>
+    @foreach($produtos as $produto)
+        <li><a href="http://localhost:8000/produtos/{{$produto->id}}">{{$produto->titulo}}</a></li>
+    @endforeach
+</ul>
+@endsection
+
+```
+
 
 
 [Voltar ao Índice](#indice)
