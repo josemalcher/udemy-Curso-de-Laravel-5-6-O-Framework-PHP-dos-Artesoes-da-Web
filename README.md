@@ -487,7 +487,66 @@ public function store(Request $request)
 
 ## <a name="parte23">23 - Lista de Validações disponíveis no Laravel</a>
 
+Veja abaixo todos os validadores disponíveis no Laravel 5.6:
 
+Accepted - O campo sob validação deve ser yes , on , 1 ou true . Isso é útil para validar a aceitação de "Termos de Serviço".  
+Active URL - Usa a função dns_get_records do PHP para verificar se uma URL responde.  
+After - O campo sob validação deve conter uma data  posterior a da validação. As datas serão passadas para a strtotime desta forma: 'date' => 'required|date|after:tomorrow'   
+After Or Equal - O campo sob validação deve ser uma data após ou igual à data especificada.  
+Alpha - O campo sob validação deve ser totalmente alfabético.  
+Alpha Dash - O campo sob validação pode ter caracteres alfanuméricos, bem como traços e sublinhados.  
+Alpha Numeric - O campo sob validação deve ser totalmente de caracteres alfanuméricos.  
+Array - O campo sob validação deve ser um  array  
+Bail - Pare de executar as regras de validação após a primeira falha de validação.  
+Before - O campo sob validação deve ser uma data anterior à data especificada.   
+Before Or Equal - O campo sob validação deve ser uma data anterior ou igual à data especificada.  
+Between - O campo sob validação deve ter um tamanho entre o min e max determinado . Strings, numéricos, matrizes e arquivos são avaliados da mesma maneira que as regras do size.  
+Boolean - O campo sob validação deve poder ser convertido em booleano. Entradas aceitas são true, false, 1, 0, "1", e "0".  
+Confirmed - O campo deve conter um valor igual a outro campo, útil para confirmações de endereços de emails ou telefone. Exemplo: para confirmar um campo email, use confirmed:email_confirmation.  
+Date - O campo sob validação deve ser uma data válida de acordo com a função PHP strtotime.  
+Date Equals - O campo sob validação deve ser igual à data especificada.  
+Date Format - Verifica se a data informada segue um formato específico. Exemplo: date_format: "d/m/Y".  
+Different - O campo sob validação deve ter um valor diferente de um determinado campo.  
+Digits - O campo sob validação deve ser numérico e deve ter um tamanho exato.  
+Digits Between - O campo sob validação deve ter um comprimento entre o min e max determinado.  
+Dimensions - O arquivo sob validação deve ser uma imagem que atenda às restrições de dimensão, conforme especificado pelos parâmetros de regra, exemplo: 'avatar' => 'dimensions:min_width=100,min_height=200'   
+Distinct - Ao trabalhar com matrizes, o campo sob validação não deve ter nenhum valor duplicado.  
+E-Mail - O campo sob validação deve ser um endereço de e-mail.  
+Exists - O campo sob validação deve existir em uma determinada tabela do banco de dados. Exemplo: exists:clientes.  
+File - O campo sob validação deve ser um arquivo carregado com sucesso.  
+Filled - O campo sob validação não deve estar vazio quando estiver presente.  
+Image - O arquivo sob validação deve ser uma imagem (jpeg, png, bmp, gif ou svg).  
+In – O valor do campo deve estar em uma lista de valores informados.  
+In Array – O valor do campo deve estar contido em outro campo com múltiplos valores, um select por exemplo.  
+Integer - O campo sob validação deve ser um inteiro.  
+IP - O campo sob validação deve ser um endereço IP.  
+IPv4 - O campo sob validação deve ser um endereço IPv4.  
+IPv6 - O campo sob validação deve ser um endereço IPv6.  
+JSON - O campo sob validação deve ser uma string JSON válida.  
+Max - O campo sob validação deve ser menor ou igual a um valor máximo. Strings, numéricos, matrizes e arquivos são avaliados da mesma maneira que as regras size.  
+MIME Types - O arquivo sob validação deve corresponder a um dos tipos MIME fornecidos: Exemplo: 'video' => 'mimetypes:video/avi,video/mpeg,video/quicktime'.   
+MIME Type By File Extension – Verifica o tipo de arquivos de acordo com a extensão. Exemplo: 'foto' => 'mimes:jpeg,bmp,png'.   
+Min - O campo sob validação deve ter um valor mínimo . Strings, numéricos, matrizes e arquivos são avaliados da mesma maneira que a regra size.  
+Not In – O valor do campo informado não deve estar em uma lista de valores.  
+Not Regex - O campo sob validação não deve corresponder à uma expressão regular dada.  
+Nullable - O campo sob validação pode ser null. Isso é particularmente útil ao validar primitivos, como cadeias de caracteres e inteiros que podem conter valores nulos.  
+Numeric - O campo sob validação deve ser numérico.  
+Present - O campo sob validação deve estar presente no formulário, mas pode estar vazio.  
+Regular Expression  - O campo sob validação deve corresponder à expressão regular fornecida. Exemplo, para validar um campo que contém um CEP usamos regex:”[0-9]{5}-[0-9]{3}$” .  
+Required – O campo sob validação deve estar presente e não pode estar vazio.  
+Required If - O campo sob validação deve estar presente e não pode estar vazio, se outro campo for igual a certo valor.  
+Required Unless - O campo sob validação deve estar presente e não pode estar vazio, a menos se outro campo for igual a certo valor.  
+Required With - O campo sob validação deve estar presente e não pode estar vazio, se qualquer um dos outros campos especificados estiverem presentes.  
+Required With All - O campo sob validação deve estar presente e não pode estar vazio, se todos os outros campos especificados estiverem presentes.  
+Required Without – O campo a ser validado deve ser preenchido se um outro campo especificado  não estiver preenchido.  
+Required Without All - O campo a ser validado deve ser preenchido quando nenhum dos outros campos  estiverem preenchido.  
+Same - O campo especificado deve corresponder ao campo em validação.  
+Size - O campo sob validação deve ter um tamanho correspondente ao valor fornecido . Para dados de string, o valor corresponde ao número de caracteres. Para dados numéricos, o valor corresponde a um valor inteiro. Para um array, size corresponde ao count do array. Para arquivos, size corresponde ao tamanho do arquivo em kilobytes.   
+String - O campo sob validação deve ser uma string. Se você quiser permitir que o campo também seja null, você deve atribuir a regra nullable ao campo.  
+Timezone - O campo sob validação deve ser um identificador de fuso horário válido de acordo com a função PHP timezone_identifiers_list.  
+Unique - O campo sob validação deve ser exclusivo em uma determinada tabela do banco de dados.   
+URL - O campo sob validação deve ser uma URL válida.  
+  
 
 [Voltar ao Índice](#indice)
 
