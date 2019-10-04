@@ -78,4 +78,15 @@ class ProdutosController extends Controller
             return redirect('produtos/'.$id.'/edit')->with('success','Produto Atualizado com sucesso');
         }
     }
+    public function destroy($id)
+    {
+        $produto = Produtos::find($id);
+
+        if(file_exists("./img/produtos/".md5($id).".jpg")){
+            unlink("./img/produtos/".md5($id).".jpg");
+        }
+
+        $produto->delete();
+        return redirect()->back()->with('success','Produto Deletado');
+    }
 }
