@@ -718,7 +718,36 @@ public function destroy($id)
 
 ## <a name="parte27">27 - Adicionando uma Barra de Busca ao nosso Catálogo</a>
 
+- projeto1/app/Http/Controllers/ProdutosController.php
 
+```php
+ public function busca(Request $request)
+    {
+        $buscaInput = $request->input('busca');
+        $produtos = Produtos::where('titulo','LIKE','%'.$buscaInput.'%')
+            ->orwhere('descricao','LIKE','%'.$buscaInput.'%')
+            ->get();
+        return view('produtos.index',array('produtos'=> $produtos, 'busca'=>$buscaInput));
+    }
+```
+
+- projeto1/resources/views/produtos/index.blade.php
+
+```blade
+<div class="row">
+        <div class="mb-12">
+            <form method="POST" action="{{url('produtos/busca')}}">
+            @csrf
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="busca" name="busca" placeholder="Procuar produtos no site" value="{{$busca}}" >
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary">Buscar</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+```
 
 [Voltar ao Índice](#indice)
 
