@@ -756,7 +756,25 @@ public function destroy($id)
 
 ## <a name="parte28">28 - Criando a paginação com o Laravel</a>
 
+- projeto1/app/Http/Controllers/ProdutosController.php
 
+```php
+ public function index(){
+         //$produtos = Produtos::all(); // recebe todos os dados do produto
+         $produtos = Produtos::paginate(3); //exibe apenas 3
+ 
+     return view('produtos.index', array('produtos' => $produtos,'busca'=> null));
+     }
+```
+
+- projeto1/resources/views/produtos/index.blade.php
+
+```blade
+        @endforeach
+    </div>
+    {{$produtos->links()}}
+@endsection
+```
 
 [Voltar ao Índice](#indice)
 

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class ProdutosController extends Controller
 {
     public function index(){
-        $produtos = Produtos::all(); // recebe todos os dados do produto
+        //$produtos = Produtos::all(); // recebe todos os dados do produto
+        $produtos = Produtos::paginate(3); // recebe todos os dados do produto
 
 /*        echo '<pre>';
         print_r($produtos);
@@ -94,7 +95,8 @@ class ProdutosController extends Controller
         $buscaInput = $request->input('busca');
         $produtos = Produtos::where('titulo','LIKE','%'.$buscaInput.'%')
             ->orwhere('descricao','LIKE','%'.$buscaInput.'%')
-            ->get();
+            //->get();
+            ->paginate(4);
         return view('produtos.index',array('produtos'=> $produtos, 'busca'=>$buscaInput));
     }
 }
