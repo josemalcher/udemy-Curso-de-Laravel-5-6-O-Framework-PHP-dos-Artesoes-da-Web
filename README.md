@@ -839,7 +839,10 @@ $ php artisan make:auth
 ---
 
 
-## <a name="parte31">31 - Configurando o Nome do Aplicativo e adicionando links na Barra de Navegação</a>
+## <a name="parte31">32 - Configurando o Nome do Aplicativo e adicionando links na Barra de Navegação</a>
+
+- projeto1/resources/views/layouts/app.blade.php
+- projeto1/.env
 
 
 
