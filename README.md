@@ -795,9 +795,44 @@ $ php artisan make:auth
 ---
 
 
-## <a name="parte30">30 - Protegendo o acesso aos conteúdos de Criação, Edição e Exclusão das views</a>
+## <a name="parte30">31 - Protegendo o acesso aos conteúdos de Criação, Edição e Exclusão das views</a>
 
+- projeto1/app/Http/Controllers/ProdutosController.php
+```php
+   if(Auth::check()){
+            return view('produtos.create');
+        }else{
+            return redirect('login');
+        }
+        return view('produtos.create');
 
+ public function edit($id)
+    {
+        if(Auth::check()){
+            $produto = Produtos::find($id);
+            return view('produtos.edit', compact('produto','id'));
+        }else{
+            return redirect('login');
+        }
+
+    }
+```
+
+- ocultar botões
+- projeto1/resources/views/produtos/index.blade.php
+
+```blade
+            @if(Auth::check())
+                    <div class="mb-3">
+                        <form method="POST" action="{{action('ProdutosController@destroy',$produto->id)}}">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <a href="{{URL::to('produtos/'.$produto->id.'/edit')}}" class="btn btn-primary">Editar</a>
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
+                @endif
+```
 
 [Voltar ao Índice](#indice)
 

@@ -10,13 +10,14 @@
     <div class="row">
         <div class="mb-12">
             <form method="POST" action="{{url('produtos/busca')}}">
-            @csrf
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="busca" name="busca" placeholder="Procuar produtos no site" value="{{$busca}}" >
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary">Buscar</button>
+                @csrf
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="busca" name="busca"
+                           placeholder="Procuar produtos no site" value="{{$busca}}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary">Buscar</button>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
     </div>
@@ -30,14 +31,16 @@
                 <h4 class="text-center">
                     <a href="{{URL::to('produtos')}}/{{$produto->id}}">{{$produto->titulo}}</a>
                 </h4>
-                <div class="mb-3">
-                    <form method="POST" action="{{action('ProdutosController@destroy',$produto->id)}}">
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <a href="{{URL::to('produtos/'.$produto->id.'/edit')}}" class="btn btn-primary">Editar</a>
-                        <button class="btn btn-danger">Excluir</button>
-                    </form>
-                </div>
+                @if(Auth::check())
+                    <div class="mb-3">
+                        <form method="POST" action="{{action('ProdutosController@destroy',$produto->id)}}">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <a href="{{URL::to('produtos/'.$produto->id.'/edit')}}" class="btn btn-primary">Editar</a>
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
+                @endif
             </div>
         @endforeach
     </div>

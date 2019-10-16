@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Produtos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdutosController extends Controller
 {
@@ -26,6 +27,11 @@ class ProdutosController extends Controller
 
     public function create()
     {
+        if(Auth::check()){
+            return view('produtos.create');
+        }else{
+            return redirect('login');
+        }
         return view('produtos.create');
     }
 
@@ -50,8 +56,13 @@ class ProdutosController extends Controller
     }
     public function edit($id)
     {
-        $produto = Produtos::find($id);
-        return view('produtos.edit', compact('produto','id'));
+        if(Auth::check()){
+            $produto = Produtos::find($id);
+            return view('produtos.edit', compact('produto','id'));
+        }else{
+            return redirect('login');
+        }
+
     }
 
     public function update(Request $request, $id)
