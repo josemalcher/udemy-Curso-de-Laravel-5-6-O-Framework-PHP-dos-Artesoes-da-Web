@@ -781,7 +781,12 @@ public function destroy($id)
 ---
 
 
-## <a name="parte29">29 - Primeiros passos na Autenticação de usuários no Laravel</a>
+## <a name="parte29">30 - Primeiros passos na Autenticação de usuários no Laravel</a>
+
+```
+$ php artisan make:auth
+```
+
 
 
 

@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', $produto->titulo)
 @section('content')
     <h1>Produto - {{$produto->titulo}}</h1>

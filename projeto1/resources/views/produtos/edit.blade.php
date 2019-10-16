@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Adicionar um  de Produtos - ' . $produto->titulo)
 @section('content')
     <h1>Editar Produto</h1>
