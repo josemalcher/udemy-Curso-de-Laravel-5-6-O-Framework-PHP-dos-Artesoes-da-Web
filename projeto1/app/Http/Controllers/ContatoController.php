@@ -12,5 +12,8 @@ class ContatoController extends Controller
         $data['titulo'] = "Minha página de contato";
         return view('contato', $data);
     }
+    public function enviar(){
+
+    }
 
 }
