@@ -862,7 +862,7 @@ $ php artisan make:auth
 
 ## <a name="parte33">33 - Instalando a Biblioteca HTTP Guzzle</a>
 
-
+- composer require guzzlehttp/guzzle
 
 [Voltar ao Índice](#indice)
 
@@ -871,7 +871,7 @@ $ php artisan make:auth
 
 ## <a name="parte34">34 - Criando um Conta no Provedor de serviços Mailgun</a>
 
-
+- https://www.mailgun.com/
 
 [Voltar ao Índice](#indice)
 
