@@ -17,11 +17,23 @@
             </ul>
         </div>
     @endif
-    <form method="POST" action="{{url('contato.enviar')}}">
+    <form method="POST" action="{{url('contato/enviar')}}">
         @csrf
         <div class="form-group mb-3">
-            <label for="Assunto">Assunto</label>
-            <input type="text" class="form-control" id="Assunto" name="Assunto" placeholder="Digite o Assunto..."
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o seu Nome"
+                   required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Digite o E-mail..."
+                   required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="assunto">Assunto</label>
+            <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Digite o Assunto..."
                    required>
         </div>
 

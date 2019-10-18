@@ -898,7 +898,36 @@ $ php artisan make:auth
 
 ## <a name="parte37">37 - Criando o método de Envio de Emails no Controlador</a>
 
+- projeto1/app/Http/Controllers/ContatoController.php
 
+```php
+public function enviar(Request $request)
+    {
+        $dadosEmail = array(
+            'nome' => $request->input('nome'),
+            'email' => $request->input('email'),
+            'assunto' => $request->input('assunto'),
+            'msg' => $request->input('msg'),
+        );
+
+        Mail::send('email.contato',$dadosEmail, function ($message){
+            $message->from('formulario@josemalcher.net','Formulario teste de envio');
+            $message->subject('Mensagem enviado pelo form de contato - test');
+            $message->to('malcher.malch@gmail.com');
+            //$message->to()->cc();
+
+        });//template de email
+        return redirect('contatao')->with('success','Mensagem enviada, em breve vamos conversar!');
+    }
+```
+
+- projeto1/routes/web.php
+
+```php
+Route::get('/contato',        'ContatoController@index');
+Route::post('/contato/enviar','ContatoController@enviar');
+
+```
 
 [Voltar ao Índice](#indice)
 
@@ -907,7 +936,44 @@ $ php artisan make:auth
 
 ## <a name="parte38">38 - Criando um Template de Email e Testando o Envio</a>
 
+- projeto1/resources/views/email/contato.blade.php
 
+```blade
+
+@extends('layout.app') //layout simples
+@section('content')
+
+    <div class="row">
+        <h4 class="mb-3">Contato pelo Site</h4>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td><strong>Nome:</strong></td>
+                <td>{{$nome}}</td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td>{{$email}}</td>
+            </tr>
+            <tr>
+                <td><strong>Assunto:</strong></td>
+                <td>{{$assunto}}</td>
+            </tr>
+            <tr>
+                <td><strong>Mensagem:</strong></td>
+                <td>
+                    {{$msg}}
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+@endsection
+
+```
 
 [Voltar ao Índice](#indice)
 

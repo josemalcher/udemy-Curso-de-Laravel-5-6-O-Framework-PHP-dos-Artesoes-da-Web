@@ -17,11 +17,11 @@ Route::get('/', function () {
 //Route::get('/contato', function () {
 //    return view('contato');
 //});
-Route::get('/contato','ContatoController@index');
+Route::get('/contato',        'ContatoController@index');
 Route::post('/contato/enviar','ContatoController@enviar');
 
-Route::resource('/produtos','ProdutosController');
-Route::post('/produtos/busca','ProdutosController@busca');
+Route::resource('/produtos',      'ProdutosController');
+Route::post(    '/produtos/busca','ProdutosController@busca');
 
 Auth::routes();
 
