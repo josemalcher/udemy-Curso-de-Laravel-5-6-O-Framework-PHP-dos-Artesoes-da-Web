@@ -10,13 +10,13 @@ class ProdutosController extends Controller
 {
     public function index(){
         //$produtos = Produtos::all(); // recebe todos os dados do produto
-        $produtos = Produtos::paginate(3); // recebe todos os dados do produto
+        $produtos = Produtos::paginate(10); // recebe todos os dados do produto
 
 /*        echo '<pre>';
         print_r($produtos);
         echo '</pre>';*/
 
-    return view('produtos.index', array('produtos' => $produtos,'busca'=> null));
+    return view('produtos.index', array('produtos' => $produtos,'busca'=> null,'ordem'=>null));
     }
 
     public function show($id)
@@ -108,6 +108,26 @@ class ProdutosController extends Controller
             ->orwhere('descricao','LIKE','%'.$buscaInput.'%')
             //->get();
             ->paginate(4);
-        return view('produtos.index',array('produtos'=> $produtos, 'busca'=>$buscaInput));
+        return view('produtos.index',array('produtos'=> $produtos, 'busca'=>$buscaInput,'ordem'=>null));
+    }
+
+    public function ordem(Request $request)
+    {
+        $ordemImput = $request->input('ordem');
+        if($ordemImput == 1){
+            $campo = 'titulo';
+            $tipo = 'asc';
+        }elseif($ordemImput == 2){
+            $campo = 'titulo';
+            $tipo = 'desc';
+        }elseif($ordemImput == 3){
+            $campo = 'preco';
+            $tipo = 'asc';
+        }elseif($ordemImput == 4){
+            $campo = 'preco';
+            $tipo = 'desc';
+        }
+        $produtos = Produtos::orderBy($campo,$tipo)->paginate(10);
+        return view('produtos.index',array('produtos'=>$produtos, 'busca'=> null, 'ordem'=>$ordemImput));
     }
 }

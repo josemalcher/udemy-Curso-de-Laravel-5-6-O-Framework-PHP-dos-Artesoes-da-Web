@@ -992,6 +992,29 @@ Route::post('/contato/enviar','ContatoController@enviar');
 ## <a name="parte40">40 - Funções de Ordenação</a>
 
 
+- projeto1/app/Http/Controllers/ProdutosController.php
+
+```php
+   public function ordem(Request $request)
+    {
+        $ordemImput = $request->input('ordem');
+        if($ordemImput == 1){
+            $campo = 'titulo';
+            $tipo = 'asc';
+        }elseif($ordemImput == 2){
+            $campo = 'titulo';
+            $tipo = 'desc';
+        }elseif($ordemImput == 3){
+            $campo = 'preco';
+            $tipo = 'asc';
+        }elseif($ordemImput == 4){
+            $campo = 'preco';
+            $tipo = 'desc';
+        }
+        $produtos = Produtos::orderBy($campo,$tipo)->paginate(10);
+        return view('produtos.index',array('produtos'=>$produtos, 'busca'=> null, 'ordem'=>$ordemImput));
+    }
+```
 
 [Voltar ao Índice](#indice)
 
