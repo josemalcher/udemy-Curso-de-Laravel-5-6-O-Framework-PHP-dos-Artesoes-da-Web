@@ -23,7 +23,7 @@
         <div class="col-12">
             <form method="POST" action="{{url('produtos/ordem')}}">
                 @csrf
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 ">
                     <select name="ordem" id="ordem">
                         <option selected disabled>Escolha a Ordem</option>
                         <option value="1">Título (A-Z)</option>
@@ -48,6 +48,12 @@
                 @endif
                 <h4 class="text-center">
                     <a href="{{URL::to('produtos')}}/{{$produto->id}}">{{$produto->titulo}}</a>
+                    @if($produto->preco == $maiscaro)
+                        <span class="badge badge-danger">Maior Preço</span>
+                    @endif
+                    @if($produto->preco == $maisbarato)
+                        <span class="badge badge-success">Menor Preço</span>
+                    @endif
                 </h4>
                 <p class="text-center">R$: {{number_format($produto->preco,2,',','.')}}</p>
                 @if(Auth::check())
@@ -62,6 +68,12 @@
                 @endif
             </div>
         @endforeach
+    </div>
+    <div>
+        <p><strong>O Valor dos Produtos é: </strong> R$  {{number_format($media,2,',','.')}}</p>
+        <p><strong>A Soma Valores dos Produtos é: </strong> R$  {{number_format($soma,2,',','.')}}</p>
+        <p><strong>A Quantidade de Produtos é: </strong>{{$contagem}}</p>
+        <p><strong>Produtos maior que R$ 10: </strong>{{$maiorquedez}}</p>
     </div>
     {{$produtos->links()}}
 @endsection

@@ -12,11 +12,28 @@ class ProdutosController extends Controller
         //$produtos = Produtos::all(); // recebe todos os dados do produto
         $produtos = Produtos::paginate(10); // recebe todos os dados do produto
 
+        $maiscaro   = Produtos::all()->max('preco');
+        $maisbarato = Produtos::all()->min('preco');
+        $media      = Produtos::all()->avg('preco');
+        $soma       = Produtos::all()->sum('preco');
+        $contagem   = Produtos::all()->count();
+        $maiorquedez= Produtos::where('preco','>','10')->count();
+
 /*        echo '<pre>';
         print_r($produtos);
         echo '</pre>';*/
 
-    return view('produtos.index', array('produtos' => $produtos,'busca'=> null,'ordem'=>null));
+    return view('produtos.index', array(
+        'produtos' => $produtos,
+        'busca'=> null,
+        'ordem'=>null,
+        'maiscaro'=>$maiscaro,
+        'maisbarato'=>$maisbarato,
+        'media'=>$media,
+        'soma'=>$soma,
+        'contagem'=>$contagem,
+        'maiorquedez'=> $maiorquedez
+        ));
     }
 
     public function show($id)

@@ -1023,7 +1023,25 @@ Route::post('/contato/enviar','ContatoController@enviar');
 
 ## <a name="parte41">41 - Funções de Agregação</a>
 
+```php
 
+        $maiscaro   = Produtos::all()->max('preco');
+        $maisbarato = Produtos::all()->min('preco');
+        $media      = Produtos::all()->avg('preco');
+        $soma       = Produtos::all()->sum('preco');
+        $contagem   = Produtos::all()->count();
+        $maiorquedez= Produtos::where('preco','>','10')->count();
+
+```
+
+```blade
+  <div>
+        <p><strong>O Valor dos Produtos é: </strong> R$  {{number_format($media,2,',','.')}}</p>
+        <p><strong>A Soma Valores dos Produtos é: </strong> R$  {{number_format($soma,2,',','.')}}</p>
+        <p><strong>A Quantidade de Produtos é: </strong>{{$contagem}}</p>
+        <p><strong>Produtos maior que R$ 10: </strong>{{$maiorquedez}}</p>
+    </div>
+```
 
 [Voltar ao Índice](#indice)
 
