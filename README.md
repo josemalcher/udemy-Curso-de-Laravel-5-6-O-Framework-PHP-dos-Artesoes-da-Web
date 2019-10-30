@@ -1050,6 +1050,16 @@ Route::post('/contato/enviar','ContatoController@enviar');
 
 ## <a name="parte42">42 - Acessando dados em múltiplas tabelas</a>
 
+- projeto1/app/Http/Controllers/ProdutosController.php
+
+```php
+public function show($id)
+    {
+        $produto = Produtos::with('mostrarComentarios')->find($id);
+        return view('produtos.show', array('produto' => $produto));
+    }
+```
+
 
 
 [Voltar ao Índice](#indice)

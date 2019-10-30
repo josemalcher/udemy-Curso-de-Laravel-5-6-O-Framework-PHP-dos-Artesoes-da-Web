@@ -18,5 +18,22 @@
     </div>
 
     <p>{{$produto->descricao}}</p>
+
+    <div class="row">
+        @foreach($produto->mostrarComentarios as $comentario)
+        <div class="card col-12">
+            <div class="card-header">
+                {{$comentario->usuario}}
+            </div>
+            <div class="card-body">
+                {{$comentario->comentario}}
+            </div>
+            <div class="card-footer">
+                {{date("d/m/Y H:i", strtotime($comentario->update_at))}}
+            </div>
+        </div>
+        @endforeach
+    </div>
+
     <a href="javascript:history.go(-1)">Voltar</a>
 @endsection
