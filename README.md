@@ -1069,7 +1069,26 @@ public function show($id)
 
 ## <a name="parte43">43 - Excluindo registros com segurança</a>
 
+- projeto1/app/Produtos.php
 
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Produtos extends Model
+{
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
+    public function mostrarComentarios(){
+        return $this->hasMany('App\Comentario','produto_id','id');
+    }
+}
+
+```
 
 [Voltar ao Índice](#indice)
 
